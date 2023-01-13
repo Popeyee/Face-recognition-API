@@ -7,7 +7,7 @@ const knex = require('knex')
 const register = require ('./controllers/register.js')
 const singin = require ('./controllers/signin.js');
 const profile = require('./controllers/profile.js');
-const image = require('./controllers/image.js');
+const image = require('./controllers/image.js').default;
 
 
 const db = knex({

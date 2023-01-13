@@ -10,14 +10,21 @@ const profile = require('./controllers/profile.js');
 const image = require('./controllers/image.js');
 
 
-const db = knex({
+// const db = knex({
+//   client: 'pg',
+//   connection: {
+//     connectionString : process.env.DATABASE_URL,
+//     ssl: {
+//       rejectUnauthorized: false
+//     }
+//   }
+// });
+
+const pg = require('knex')({
   client: 'pg',
-  connection: {
-    connectionString : process.env.DATABASE_URL,
-    ssl: {
-      rejectUnauthorized: false
-    }
-  }
+  connection: process.env.PG_CONNECTION_STRING,
+  searchPath: ['knex', 'public'],
+  debug: true,
 });
 
 // db.select('*').from('users');

@@ -13,19 +13,13 @@ const image = require('./controllers/image.js');
 const db = knex({
   client: 'pg',
   connection: {
-    connectionString : 'postgres://facereco_db_user:MPuenPJeDIYil2X5qtiCdYgHNwfETAGn@dpg-cf07o6ha6gdm8jvg2jp0-a/facereco_db',
+    connectionString : process.env.DATABASE_URL,
     ssl: {
       rejectUnauthorized: false
     }
   }
 });
 
-// const db = require('knex')({
-//   client: 'pg',
-//   connection: process.env.PG_CONNECTION_STRING,
-//   searchPath: ['knex', 'public'],
-//   debug: true,
-// });
 
 // db.select('*').from('users');
 
